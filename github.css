@@ -1,0 +1,48 @@
+body {
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.black {
+    color: black;
+}
+
+.white {
+    color: white;
+}
+ul{
+    list-style-type: none;
+
+}
+
+.horizontal {
+    display: inline-block;
+
+}
+
+.horizontal li {
+    display: inline-block;
+    margin: 0px 10px 0px 10px;
+    vertical-align: middle;
+
+
+}
+
+#blackbar {
+    background-color: black;
+    color: white;
+}
+
+.right-align {
+    margin-left: auto;
+}
+
+.outside-border {
+    border-style: solid;
+    border-color: #cccdcd;
+    border-width: 1px;
+}
+
