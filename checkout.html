@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout 💸</h1>
+    <h3>Credit Card Information:</h3>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+        <label for="card-type">Card Type
+            <br>
+        <select name="card-type" autofocus="autofocus">
+            <option value="amex">American Express</option>
+            <option value="mastercard">Mastercard</option>
+            <option value="visa">Visa</option>
+            <option value="other">Other</option>
+        </select>
+        </label>
+        <br>
+        <label for="name">Name
+                <br>
+                <input id="name" name="name" type="text" placeholder="as shown on the card" required>
+            </label>
+        <br>
+        <label for="card-number">Card Number
+            <br>
+            <input id="card-number" name="card-number" type="text" placeholder="card number" required>
+        </label>
+        <br>
+
+            <label for="expiration-month">Expiration Date
+                <br>
+                Month
+                <input id="expiration-month" type="text" name="expiration-month" placeholder="00" required>
+            </label>
+            <label for="expiration-year">Year
+                <input id="expiration-year" name="expiration-year" type="text" placeholder="0000" required>
+            </label>
+        <br>
+        <label for="security-code">Security Code
+            <br>
+            <input id="security-code" name="security-code" type="text" placeholder="000" required>
+        </label>
+        <br>
+        <button>Buy Now!</button>
+    </form>
+</body>
+</html>

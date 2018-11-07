@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Search</title>
+</head>
+<body>
+    <form method="GET" action="https://request-inspector.glitch.me/">
+        <h2>What type of property are you looking for?🏡</h2>
+        <select name="property-type" autofocus="autofocused">
+            <option value="condo">Condo</option>
+            <option value="house">House</option>
+            <option value="duplex">Duplex</option>
+            <option value="apartment">Apartment</option>
+            <option value="mobile-home">Mobile Home</option>
+        </select>
+        <br>
+        <h2>How much space do you want?</h2>
+        <label for="sq-footage">
+            <input id="sq-footage" name="sq-footage" type="text" placeholder="ex: 1,500">sq. feet
+        </label>
+        <h2>Price Range</h2>
+        <label for="min-price">Minimum: $
+            <input id="min-price" name="min-price" type="text" placeholder="ex:1,200">
+        </label>
+        <br>
+        <label for="max-price">Maximum: $
+            <input id="max-price" name="max-price" type="text" placeholder="ex:1,000,000">
+        </label>
+        <h2>Preferred Zipcode</h2>
+        <label for="zipcode">Zipcode
+            <input id="zipcode" name="zipcode" type="text" placeholder="ex: 78209">
+        </label>
+        <br>
+        <h2>Number of Rooms</h2>
+        <label for="bedrooms">Bedrooms:
+            <input id="bedrooms" type="text" name="bedrooms" placeholder="ex: 3">
+        </label>
+        <br>
+        <label for="bathrooms">Bathrooms:
+            <input id="bathrooms" name="bathrooms" type="text" placeholder="ex: 2">
+        </label>
+        <br>
+        <button type="submit">Search now</button>
+    </form>
+</body>
+</html>
