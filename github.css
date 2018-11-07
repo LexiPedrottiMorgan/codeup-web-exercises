@@ -46,3 +46,15 @@ ul{
     border-width: 1px;
 }
 
+/*greybar not working*/
+#greybar {
+    background-color: #cccdcd;
+    color: blue;
+}
+
+/*footer style not working*/
+.footer {
+    font-size: 10px;
+    color: blue;
+    text-decoration: underline;
+}

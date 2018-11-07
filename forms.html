@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+        <h2>Email</h2>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" placeholder="Enter your email here.">
+        <br>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Enter your password here.">
+        <br>
+        <h2>About Me</h2>
+        <label for="bio"></label>
+        <textarea id="bio" name="bio" placeholder="Tell us a little bit about you"></textarea>
+        <br>
+        <h2>How did you hear about us?</h2>
+
+        <label for="billboard">
+           <input id="billboard" name="Hear-about-us" type="radio">Billboard
+        </label>
+        <label for="radio-ad">
+            <input id="radio-ad" name="Hear-about-us" type="radio">Radio Advertisment
+        </label>
+        <label for="internet-ad">
+            <input id="internet-ad" name="Hear-about-us" type="radio">Internet Advertisment
+        </label>
+        <label for="other">
+            <input id="other" name="Hear-about-us" type="radio">Other
+        </label>
+        <!--If you give them different name attributes, they won't work together and so you would be able to select more than one-->
+        <!--To select multiple answers, checkboxes are the best-->
+        <h2>How did you hear about us? (multiple answers allowed)</h2>
+
+        <label for="billboard2">
+            <input id="billboard2" name="Hear-about-us-checkbox" type="checkbox" value="billboard">Billboard
+        </label>
+        <label for="radio-ad2">
+            <input id="radio-ad2" name="Hear-about-us-checkbox" type="checkbox" value="radio-ad">Radio Advertisment
+        </label>
+        <label for="internet-ad2">
+            <input id="internet-ad2" name="Hear-about-us-checkbox" type="checkbox" value="internet-ad">Internet Advertisment
+        </label>
+        <label for="other2">
+            <input id="other2" name="Hear-about-us-checkbox" type="checkbox" value="other">Other
+        </label>
+        <h2>What web browser are you using?</h2>
+        <select name="Web-browser-using">
+            <option value="safari">Safari</option>
+            <option value="google-chrome" selected>Google Chrome</option>
+            <option value="other">Other</option>
+        </select>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
