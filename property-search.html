@@ -7,6 +7,8 @@
 <body>
     <form method="GET" action="https://request-inspector.glitch.me/">
         <h2>What type of property are you looking for?🏡</h2>
+       <!--
+
         <select name="property-type" autofocus="autofocused">
             <option value="condo">Condo</option>
             <option value="house">House</option>
@@ -14,6 +16,58 @@
             <option value="apartment">Apartment</option>
             <option value="mobile-home">Mobile Home</option>
         </select>
+        -->
+
+
+
+        <div>
+            <style>img:hover {
+                border: 3px solid grey;
+            }
+            div {
+                display: inline-block;
+            }
+            </style>
+            <label for="condo">
+                <img src="img/condo.jpg" alt="condo" height="200px" width="300px">
+                <br>
+            </label>
+            <input type="radio" id="condo" name="property-type" value="condo">
+            <strong>Condo</strong>
+        </div>
+        <div>
+            <label for="house">
+                <img src="img/house.jpg" alt="house" height="200px" width="300px">
+                <br>
+            </label>
+            <input type="radio" id="house" name="property-type" value="house">
+            <strong>House</strong>
+        </div>
+        <div>
+            <label for="duplex">
+                <img src="img/duplex.jpg" alt="duplex" height="200px" width="300px">
+                <br>
+            </label>
+            <input type="radio" id="duplex" name="property-type" value="duplex">
+            <strong>Duplex</strong>
+        </div>
+        <div>
+            <label for="apartment">
+                <img src="img/apartment.jpg" alt="apartment" height="200px" width="300px">
+                <br>
+            </label>
+            <input type="radio" id="apartment" name="property-type" value="apartment">
+            <strong>Apartment</strong>
+        </div>
+        <div>
+            <label for="mobile-home">
+                <img src="img/mobile-home.jpg" alt="mobile-home" height="200px" width="300px">
+                <br>
+            </label>
+            <input type="radio" id="mobile-home" name="property-type" value="mobile-home">
+            <strong>Mobile Home</strong>
+        </div>
+
         <br>
         <h2>How much space do you want?</h2>
         <label for="sq-footage">
