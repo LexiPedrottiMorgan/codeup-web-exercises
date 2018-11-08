@@ -3,31 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Property Search</title>
+    <style>img:hover {
+        border: 3px solid grey;
+    }
+    img:active{
+        border-color: red;
+    }
+
+    div {
+        display: inline-block;
+    }
+    </style>
 </head>
 <body>
     <form method="GET" action="https://request-inspector.glitch.me/">
         <h2>What type of property are you looking for?🏡</h2>
-       <!--
-
-        <select name="property-type" autofocus="autofocused">
-            <option value="condo">Condo</option>
-            <option value="house">House</option>
-            <option value="duplex">Duplex</option>
-            <option value="apartment">Apartment</option>
-            <option value="mobile-home">Mobile Home</option>
-        </select>
-        -->
-
 
 
         <div>
-            <style>img:hover {
-                border: 3px solid grey;
-            }
-            div {
-                display: inline-block;
-            }
-            </style>
+
             <label for="condo">
                 <img src="img/condo.jpg" alt="condo" height="200px" width="300px">
                 <br>
@@ -70,12 +64,22 @@
 
         <br>
         <h2>How much space do you want?</h2>
-        <label for="sq-footage">
-            <input id="sq-footage" name="sq-footage" type="text" placeholder="ex: 1,500">sq. feet
-        </label>
+
+                <label for="sq-footage">
+
+
+                <input id="sq-footage" name="sq-footage" type="text" placeholder="ex: 1,500">
+                sq. feet
+            </label>
+
+
+
+
         <h2>Price Range</h2>
+
+
         <label for="min-price">Minimum: $
-            <input id="min-price" name="min-price" type="text" placeholder="ex:1,200">
+           <tr> <input id="min-price" name="min-price" type="text" placeholder="ex:1,200">
         </label>
         <br>
         <label for="max-price">Maximum: $
@@ -94,8 +98,10 @@
         <label for="bathrooms">Bathrooms:
             <input id="bathrooms" name="bathrooms" type="text" placeholder="ex: 2">
         </label>
+
         <br>
         <button type="submit">Search now</button>
+
     </form>
 </body>
 </html>
