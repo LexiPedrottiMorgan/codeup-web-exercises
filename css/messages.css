@@ -1,0 +1,49 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    font-family: Arial, Ubuntu, sans-serif;
+    --main-border-radius: 4px;
+    --main-border: 1px solid lightgray;
+    --main-margin: 4px;
+    --main-padding: 4px;
+}
+
+
+.message-info {
+    background-color: lightblue;
+    color: darkblue;
+    margin: var(--main-margin);
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+    padding: var(--main-padding);
+}
+
+.message-success {
+    background-color: lightgreen;
+    color: darkgreen;
+    margin: var(--main-margin);
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+    padding: var(--main-padding);
+}
+
+.message-warning {
+    background-color: lightyellow;
+    color: darkgoldenrod;
+    margin: var(--main-margin);
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+    padding: var(--main-padding);
+}
+
+
+.message-error {
+    background-color: pink;
+    color: darkred;
+    margin: var(--main-margin);
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+    padding: var(--main-padding);
+}
