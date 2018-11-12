@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    width: 100%
+}
+
+.column {
+    float: left;
+    /*padding: 10px;*/
+    margin-bottom: 1em;
+
+
+}
+
+.column.whole {
+    width: 100%;
+
+}
+
+.column.one-half {
+    width: 50%;
+
+
+}
+
+
+.column.one-third {
+    width: 33%;
+
+
+
+}
+
+.column.two-thirds {
+    width: 66%;
+
+
+}
+
+.column.one-fourth {
+    width: 25%;
+
+
+
+}
+
+.column.one-sixth {
+    width: 16.66%;
+
+
+}
+
+.column.one-eighth {
+    width: 12.5%;
+
+
+}
+
+}
+
+
+/* ----- OFFSETTING: ----- */
+
+
+.offset-one-eighth {
+    margin-left: 12.5%;
+
+}
+
+.offset-one-sixth {
+    margin-left: 16.7%;
+}
+
+
+.offset-one-fourth {
+    margin-left: 25%;
+}
+
+.offset-one-third{
+    margin-left: 33.3%;
+}
+
+.column.offset-one-half {
+    margin-left: 50%;
+
+}
+
+.offset-two-thirds {
+    margin-left: 66.7%;
+}
+
+.offset-three-fourths {
+    margin-left: 75%;
+}
+
+.offset-five-sixths {
+    margin-left: 83.3%;
+}
+
+.offset-five-eighths {
+    margin-left: 62.5%;
+}
+
+.offset-seven-eighths {
+    margin-left: 87.5%;
+}
+
+/* ----- screen size adjustments ----- */
+
+
+@media screen and (max-width: 768px) {
+    .column.one-third,
+    .column.one-half,
+    .column.one-fourth,
+    .column.one-sixth,
+    .column.one-eighth,
+    .column.two-thirds,
+    .column {
+        width: 100%;
+    }
+
+    .offset-one-sixth {
+        margin-left: 0;
+    }
+}
+
+
