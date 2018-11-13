@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Pizza Order Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--bootstrap stylesheet linked here-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--Link to my custom style sheet-->
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+<div class=".navbar-md">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand active">Pizza World</a>
+        <a class="navbar-brand"><a href="#size-crust">Order Online</a>
+        <a class="navbar-brand">Menu</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button>
+            <img class="log-in-head" src="img/login-icon.jpg">
+            <a class="navbar-brand">Sign Up</a>
+        </form>
+    </nav>
+
+</div>
+
+<div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="d-none d-sm-block d-md-block d-lg-block">
+            <h1 class="display-4 white-background">Welcome to Pizza World!</h1>
+           <img src="img/pizza-jumbotron.png">
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <h2>Build your own pizza!</h2>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+
+            <a class="nav-link active" href="#size-crust"><span class="badge badge-pill badge-secondary">1</span>Size and Crust</a>
+        </li>
+        <li class="nav-item">
+
+            <a class="nav-link" href="#cheese-sauce"><span class="badge badge-pill badge-secondary">2</span>Cheese and Sauce</a>
+
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#choose-toppings"><span class="badge badge-pill badge-secondary">3</span>Toppings</a>
+        </li>
+    </ul>
+    <div class="container">
+        <div class="card" style="width: 100%;">
+            <a name="size-crust"></a>
+            <li class="list-group-item header-blue">Choose Size and Crust</li>
+    <div class="container">
+    <div class="card" style="width: 100%;">
+        <header class="header-gray">Hand Tossed</header>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+            <li class="radio list-group-item"><input type="radio" name="crust-size" value="small"> Small (10")</li>
+            <li class="radio list-group-item"><input type="radio" name="crust-size" value="medium"> Medium (12")</li>
+        </ul>
+
+    </div>
+
+
+
+        <div class="card">
+            <header class="header-gray">Crispy Thin</header>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                <li class="radio list-group-item"><input type="radio" name="crust-size" value="medium"> Medium (12")</li>
+                <li class="radio list-group-item"><input type="radio" name="crust-size" value="large"> Large (14")</li>
+            </ul>
+
+        </div>
+
+    </div>
+        <footer>
+            <button class="form-button" type="submit">Next Step ></button>
+        </footer>
+    </div>
+        </div>
+
+            <div class="card">
+                <a name="cheese-sauce"></a>
+                <li class="list-group-item header-blue">Choose Cheese and Sauce</li>
+                <div class="container">
+                    <div class="card blue-background" style="width: 100%;">
+                        <ul class="list-group list-group-flush">
+                            <header class="header-gray">Cheese</header>
+                            <p>How Much?</p>
+                            <select>
+                                <option class="list-group-item">Light</option>
+                                <option class="list-group-item" selected>Normal</option>
+                                <option class="list-group-item">Extra</option>
+                                <option class="list-group-item">Double</option>
+                            </select>
+                        </ul>
+
+
+                </div>
+
+                <div class="card blue-background">
+                    <header class="header-gray">Sauce</header>
+                    <ul class="list-group list-group-flush">
+                        <p>What Type?</p>
+                        <select>
+                            <option class="list-group-item">Tomato Sauce</option>
+                            <option class="list-group-item" selected>Marinara sauce</option>
+                            <option class="list-group-item">BBQ Sauce</option>
+                            <option class="list-group-item">Alfredo Sauce</option>
+                        </select>
+                    </ul>
+                    <ul class="list-group list-group-item list-group-flush">
+                        <p>How Much?</p>
+                        <select>
+                            <option class="list-group-item">Light</option>
+                            <option class="list-group-item" selected>Normal</option>
+                            <option class="list-group-item">Extra</option>
+                        </select>
+                    </ul>
+                </div>
+
+                    <footer>
+
+                        <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                                <input type="radio" name="options" id="option1"> < Previous Step
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" name="options" id="option2"> Next Step >
+                            </label>
+                        </div>
+                    </footer>
+                </div>
+</div>
+
+
+
+                <div class="card">
+                    <a name="choose-toppings"></a>
+                    <li class="list-group-item header-blue">Choose Toppings</li>
+                    <div class="container">
+                        <div class="card">
+                            <header class="header-gray">Choose Meats</header>
+                            <ul class="list-group list-group-flush">
+                                <li class="radio list-group-item"><input type="checkbox" name="toppings" value="beef"> Beef</li>
+                                <li class="radio list-group-item"><input type="checkbox" name="toppings" value="ham"> Ham</li>
+                                <li class="radio list-group-item"><input type="checkbox" name="toppings" value="philly-steak"> Philly steak</li>
+                                <li class="radio list-group-item"><input type="checkbox" name="toppings" value="bacon"> Bacon</li>
+                            </ul>
+                        </div>
+                        </div>
+
+                <div class="container">
+                    <div class="card">
+                                <header class="header-gray">Choose Non-Meats</header>
+                                <ul class="list-group list-group-flush">
+                                    <li class="radio list-group-item"><input type="checkbox" name="toppings" value="green-pepers"> Green Peppers</li>
+                                    <li class="radio list-group-item"><input type="checkbox" name="toppings" value="mushrooms"> Mushrooms</li>
+                                    <li class="radio list-group-item"><input type="checkbox" name="toppings" value="onions"> Onions</li>
+                                    <li class="radio list-group-item"><input type="checkbox" name="toppings" value="Jalapeno-peppers"> Jalapeno Peppers</li>
+                                </ul>
+
+                            </div>
+                    <footer>
+                        <button class="form-button" type="submit"><img class="checkout-icon" src="img/Shopping-Cart-Icon-white.png"> Checkout</button>
+                    </footer>
+                   </div>
+                </div>
+<!--Bootstrap code for javascript-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
