@@ -1,0 +1,127 @@
+.jumbotron {
+    margin-top: 0;
+    padding: 0;
+
+}
+
+
+.white-background {
+    text-align: center;
+    background: white;
+    opacity: .6;
+    position: absolute;
+    width: 100%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    border-radius: 4px;
+}
+
+h1 {
+    color: black
+    opacity: 1.0;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.log-in-head {
+    height: 40px;
+    width: 50px;
+
+}
+
+img {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+span {
+    margin-right: .5em;
+}
+
+.header-gray {
+    background: #eaeef9;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+
+
+}
+
+.header-blue {
+    background: #cfe8f7;
+    color: #5689a2;
+    width: 100%;
+    margin-bottom: 1em;
+    border-radius: 4px;
+
+}
+
+.container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.card {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.form-button {
+    float: right;
+    background: dodgerblue;
+    color: white;
+    border-radius: 4px;
+    padding: .3em;
+
+}
+
+
+
+
+
+
+
+.checkout-icon {
+    height: 20px;
+    width: 30px;
+}
+
+.margin-bottom {
+    margin-bottom: 1em;
+}
+
+
+.list-group-item {
+    background: #ecf7ff;
+}
+
+.blue-background {
+    background: #ecf7ff;
+}
+
+.navbar a:hover {
+    background-color: lightgray;
+}
+
+.navbar a {
+    color: black;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+/*.btn-group.btn-group-toggle {*/
+    /*background: dodgerblue;*/
+    /*color: white;*/
+    /*border-radius: 4px;*/
+/*}*/
