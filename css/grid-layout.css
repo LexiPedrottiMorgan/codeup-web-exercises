@@ -46,6 +46,10 @@
 
 }
 
+.three-fourths {
+    width: 75%
+}
+
 .one-fourth {
     width: 25%;
 
@@ -89,9 +93,13 @@
     margin-left: 33.3%;
 }
 
-.column.offset-one-half {
+.offset-one-half {
     margin-left: 50%;
 
+}
+
+.offset-three-fifths {
+    margin-left: 60%;
 }
 
 .offset-two-thirds {
