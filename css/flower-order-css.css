@@ -1,0 +1,124 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.brand-logo {
+    font-family: 'Abril Fatface', cursive;
+    margin-left: 1em;
+}
+
+
+.top-negative-50 {
+    margin-top: -100px;
+    margin-left: -50px;
+    position: relative;
+}
+
+.top-100 {
+    top: 100px;
+}
+
+.left-3 {
+    left: 2.5em;
+}
+
+img {
+    position: relative;
+    opacity: .85;
+}
+
+.fancy-header {
+    font-family: 'Abril Fatface', cursive;
+    color: black;
+    position: absolute;
+    width: 50%;
+    padding: .2em;
+    background: #b2dfdb;
+    /*opacity: .7;*/
+    z-index: 4;
+}
+
+.quote-box {
+    font-family: 'Abril Fatface', cursive;
+    color: black;
+    position: absolute;
+    width: 33%;
+    padding: 1em;
+    background: #b2dfdb;
+    /*opacity: .7;*/
+    z-index: 4;
+}
+
+
+.p-container-1 {
+    left: 11.5em;
+    top: 370px;
+    width: 17%;
+    text-align: justify;
+    float: left;
+    margin: 0 auto;
+    position: absolute;
+}
+
+.p-container-2 {
+    left: 28.3em;
+    top: 370px;
+    width: 17%;
+    text-align: justify;
+    float: left;
+    margin: 0 auto;
+    position: absolute;
+}
+
+
+.p-container-3 {
+    left: 12.5em;
+    top: 335px;
+    width: 34%;
+    text-align: justify;
+    float: left;
+    margin: 0 auto;
+    position: absolute;
+    font-weight: bold;
+}
+
+
+.mid-page {
+    top: 1900px;
+}
+
+.float-right {
+    float: right;
+    margin-right: -50px;
+}
+
+footer {
+
+    font-family: 'Abril Fatface', cursive;
+    position: bottom;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.logo {
+    width: 150px;
+}
+
+
+.floating-logo {
+    width: 300px;
+    position: absolute;
+    top: 680px;
+    margin-left: 370px;
+    background-color: papayawhip;
+    opacity: .6;
+}
