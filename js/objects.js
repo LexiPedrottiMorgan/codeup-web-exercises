@@ -27,11 +27,11 @@
         person.firstName = "Lexi";
         person.lastName = "Morgan";
         person.sayHello = function() {
-            return "Hello from " + person.firstName + " " + person.lastName + "!";
+            return "Hello from " + this.firstName + " " + this.lastName + "!";
         };
 
-    console.log(person.firstName);
-    console.log(person.lastName);
+    // console.log(person.firstName);
+    // console.log(person.lastName);
     console.log(person.sayHello());
 
     //to separate the tasks in the console
@@ -70,7 +70,7 @@
             }
     });
 
-
+author: {}
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -86,19 +86,19 @@
      */
 
     var books = [
-        {title: "Jurassic Park", firstName: "Michael", lastName: "Crichton"},
-        {title: "The Dictionary", firstName: "Meriam", lastName: "Webster"},
-        {title: "In Cold Blood", firstName: "Truman", lastName: "Capote" },
-        {title: "Miracle in the Andes", firstName: "Nando", lastName:"Parrado"},
-        {title: "Harry Potter", firstName: "J.K.", lastName:"Rowling"}
+        {title: "Jurassic Park", author: {firstName: "Michael", lastName: "Crichton"}},
+        {title: "The Dictionary", author: {firstName: "Meriam", lastName: "Webster"}},
+        {title: "In Cold Blood", author: {firstName: "Truman", lastName: "Capote" }},
+        {title: "Miracle in the Andes", author: {firstName: "Nando", lastName:"Parrado"}},
+        {title: "Harry Potter", author: {firstName: "J.K.", lastName:"Rowling"}}
     ];
 
 
     console.log(books[0].title);
-    console.log(books[0].firstName);
-    console.log(books[0].lastName);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
     console.log(books[1].title);
-    console.log(books[4].firstName);
+    console.log(books[4].author.firstName);
     console.log("----------------");
 
     /**
@@ -129,7 +129,7 @@
     books.forEach(function(book, index) {
         console.log("Book # " + (parseFloat(index) + 1));
         console.log("Title: " + book.title);
-        console.log("Author: " + book.firstName + " " + book.lastName);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
         console.log("---");
 
     });
@@ -148,7 +148,7 @@
 
 
     function createBook(title, authorFirstName, authorLastName) {
-        return {title: title, firstName: authorFirstName, lastName: authorLastName};
+        return {title: title, author: {firstName: authorFirstName, lastName: authorLastName}};
     };
 
     var showBookInfo = [];
@@ -164,7 +164,7 @@
     showBookInfo.forEach(function(showBookInfo, index) {
         console.log("Book # " + (parseFloat(index) + 1));
         console.log("Title: " + showBookInfo.title);
-        console.log("Author: " + showBookInfo.firstName + " " + showBookInfo.lastName);
+        console.log("Author: " + showBookInfo.author.firstName + " " + showBookInfo.author.lastName);
         console.log("---");
 
     });
