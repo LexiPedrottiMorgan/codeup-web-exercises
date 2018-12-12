@@ -5,12 +5,15 @@
 </head>
 <body>
 <h1>Konami Code</h1>
+<img id="code-activated"src="img/dance-now.gif">
 
 <script src="js/jquery.js"></script>
 <script>
     "use strict";
     $(document).ready(function() {
         alert( 'The DOM has finished loading!' );
+
+        $("#code-activated").hide();
 
 
     //to get the codes for each key
@@ -28,6 +31,8 @@
         if (keys.toString() === konami.toString()){
             console.log("correct code!");
             $("body").css("background-color", "red");
+            $("#code-activated").show();
+            
         } else {
         console.log("wrong code");
     }
