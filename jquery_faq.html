@@ -35,7 +35,7 @@
 <hr>
 
 <h3 class="header">Arches National Park</h3>
-    <ul id="arches">
+    <ul class="park-facts" id="arches">
         <li>76,519 acres (119 square miles) of land</li>
         <li>Established in 1971.</li>
         <li>There are more than sandstone 2000 arches.</li>
@@ -45,7 +45,7 @@
 
 
 <h3 class="header">Glacier National Park</h3>
-    <ul id="glacier">
+    <ul class="park-facts" id="glacier">
         <li>The world's first international peace park.</li>
         <li>Straddles the Continental Divide which allows for extreme weather.</li>
         <li>The largest glacier in the park is .7 square miles.</li>
@@ -54,7 +54,7 @@
 
 
 <h3 class="header">Sequoia National Park</h3>
-    <ul id="sequoia">
+    <ul class="park-facts" id="sequoia">
         <li>Home to five of the 10 largest trees on Earth.</li>
         <li>Low-intensity prescribed burns helps promotes the growth of new trees.</li>
         <li>These trees can live for over 3,000 years!</li>
@@ -66,6 +66,9 @@
 
 </div>
 
+<div class="pictures" id="arches-pic"></div>
+<div class="pictures" id="glacier-pic"></div>
+<div class="pictures" id="sequoia-pic"></div>
 
 
 
@@ -85,15 +88,13 @@
     })
 
      $(".header").click(function(){
-         $('li').css('font-weight', 'bold');
+         $(this).next(".park-facts").css('font-weight', 'bold');
      })
 
-      //  not working correctly- only makes the first li on arches blue
+
       $("ul").click(function(){
-            $('li').first().css('color', 'blue');
+            $(this).children().first().css("color", "blue");
        })
-
-
     });
 
 </script>
@@ -102,9 +103,9 @@
 <style>
     #background {
         background-image: url(img/national-park.jpg);
-        opacity: .35;
+        opacity: .3;
         width: 100%;
-        height: 100%;
+        height: 300%;
         z-index: 0;
         position: absolute;
 
@@ -119,7 +120,6 @@
     dt {
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
-        font-style: italic;
         font-size: 18px;
         margin-top: 1em;
         padding: .5em;
@@ -134,6 +134,7 @@
 
     dd , li{
         font-family: 'Montserrat', sans-serif;
+        font-style: italic;
     }
 
     .invisible {
