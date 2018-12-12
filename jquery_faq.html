@@ -3,11 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>National Parks FAQ</title>
+    <!--bootstrap stylesheet linked here-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--google fonts linked here-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Pacifico" rel="stylesheet">
 </head>
 <body>
 <div id="background"></div>
 <div id="info-text">
+
+    <div class="alert alert-dismissible alert-info" role="alert">
+        <span class="x-hide pointer">x</span>
+        <div id="newsletter" class="thumbnail alert alert-dismissible">
+            <h1>Would you like to sign up for our newsletter?</h1>
+            <p><a href="#" class="btn btn-primary" role="button">Sign me up!</a></p>
+        </div>
+    </div>
+
+
+<div id="register" class="hidden">
+    <div class="alert alert-dismissible alert-warning" role="alert">
+        <span class="x-hide pointer">x</span>
+        <div class="thumbnail alert alert-dismissible">
+            <h1>Please Register!</h1>
+            <p><a href="#" class="btn btn-primary" role="button">Register</a></p>
+        </div>
+    </div>
+</div>
+
+<!--<h2 class="hidden" id="register">Register!</h2>-->
+
 <h1>National Parks FAQ:</h1>
 <dl>
     <dt>What government agency oversees the National Park Service?</dt>
@@ -34,8 +59,9 @@
 
 <hr>
 
+<h2>Click to Explore:</h2>
 <h3 class="header">Arches National Park</h3>
-    <ul class="park-facts" id="arches">
+    <ul class="park-facts hidden" id="arches">
         <li>76,519 acres (119 square miles) of land</li>
         <li>Established in 1971.</li>
         <li>There are more than sandstone 2000 arches.</li>
@@ -45,7 +71,7 @@
 
 
 <h3 class="header">Glacier National Park</h3>
-    <ul class="park-facts" id="glacier">
+    <ul class="park-facts hidden" id="glacier">
         <li>The world's first international peace park.</li>
         <li>Straddles the Continental Divide which allows for extreme weather.</li>
         <li>The largest glacier in the park is .7 square miles.</li>
@@ -54,7 +80,7 @@
 
 
 <h3 class="header">Sequoia National Park</h3>
-    <ul class="park-facts" id="sequoia">
+    <ul class="park-facts hidden" id="sequoia">
         <li>Home to five of the 10 largest trees on Earth.</li>
         <li>Low-intensity prescribed burns helps promotes the growth of new trees.</li>
         <li>These trees can live for over 3,000 years!</li>
@@ -62,10 +88,11 @@
     </ul>
 
 
-    <button id="highlighter">Highlight</button>
+    <button id="highlighter" class="btn btn-primary">Highlight</button>
 
 </div>
 
+<!--divs for the bonus question:-->
 <div class="pictures" id="arches-pic"></div>
 <div class="pictures" id="glacier-pic"></div>
 <div class="pictures" id="sequoia-pic"></div>
@@ -78,25 +105,49 @@
     $(document).ready(function() {
 
     $("dt").click(function() {
-        $("dd").toggleClass('invisible');
+        $(this).next("dd").slideToggle(300).toggleClass('invisible');
     })
 
-    $("#highlighter").click(function(){
-        $("#arches").children().last().css("background-color", "yellow");
-        $("#sequoia").children().last().css("background-color", "yellow");
-        $("#glacier").children().last().css("background-color", "yellow");
-    })
+     // Shorter way to do highlighter:
 
-     $(".header").click(function(){
-         $(this).next(".park-facts").css('font-weight', 'bold');
+        $("#highlighter").click(function (){
+            $("ul").each(function (){
+                $(this).children().last().css("background-color", "yellow");
+
+            })
+        })
+
+        //the longer way to do highlighter, use the more efficient way above- left this just for reference:
+
+        // $("#highlighter").click(function(){
+        //     $("#arches").children().last().css("background-color", "yellow");
+        //     $("#sequoia").children().last().css("background-color", "yellow");
+        //     $("#glacier").children().last().css("background-color", "yellow");
+        // })
+
+
+
+        $(".header").click(function(){
+
+         $(this).next(".park-facts").slideToggle(300).css('font-weight', 'bold');
      })
 
 
       $("ul").click(function(){
             $(this).children().first().css("color", "blue");
        })
-    });
 
+
+
+    $(".x-hide").click(function(){
+        $(this).parent().hide("#newsletter");
+
+    })
+
+    $("#register").delay(8000).fadeIn(1000);
+
+
+    });
 </script>
 
 <!--CSS HERE-->
@@ -110,6 +161,10 @@
         position: absolute;
 
 
+    }
+
+    .pointer {
+        cursor: pointer;
     }
 
     #info-text{
@@ -140,9 +195,31 @@
     .invisible {
         display: none;
     }
+
+    .hidden {
+        display: none;
+    }
+
+    link {
+        color: lightseagreen;
+    }
+
+    .header {
+        font-size: 40px;
+        color: midnightblue;
+        font-family: pacifico;
+        padding-top: .5em;
+    }
+
 </style>
 
 
 
+
+
+
+<!--Bootstrap code for javascript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
