@@ -31,7 +31,72 @@
     <dt>What is the point of all of these national parks?</dt>
         <dd class="invisible">The purpose of preserving the national parks is, "to conserve the scenery and the natural and historic objects and wildlife therein, and to provide for the enjoyment of the same in such manner and by such means as will leave them unimpaired for the enjoyment of future generations."</dd>
 </dl>
+
+<hr>
+
+<h3 class="header">Arches National Park</h3>
+    <ul id="arches">
+        <li>76,519 acres (119 square miles) of land</li>
+        <li>Established in 1971.</li>
+        <li>There are more than sandstone 2000 arches.</li>
+        <li><a href="https://www.nps.gov/arch/learn/photosmultimedia/webcams.htm "target=_blank">Click to see the current conditions</a></li>
+    </ul>
+
+
+
+<h3 class="header">Glacier National Park</h3>
+    <ul id="glacier">
+        <li>The world's first international peace park.</li>
+        <li>Straddles the Continental Divide which allows for extreme weather.</li>
+        <li>The largest glacier in the park is .7 square miles.</li>
+        <li><a href="https://www.nps.gov/glac/learn/photosmultimedia/webcams.htm "target=_blank">Click to see the current conditions</a></li>
+    </ul>
+
+
+<h3 class="header">Sequoia National Park</h3>
+    <ul id="sequoia">
+        <li>Home to five of the 10 largest trees on Earth.</li>
+        <li>Low-intensity prescribed burns helps promotes the growth of new trees.</li>
+        <li>These trees can live for over 3,000 years!</li>
+        <li><a href="https://www.nps.gov/seki/planyourvisit/conditions.htm "target=_blank">Click to see the current conditions</a></li>
+    </ul>
+
+
+    <button id="highlighter">Highlight</button>
+
 </div>
+
+
+
+
+<!--JAVASCRIPT HERE-->
+<script src="js/jquery.js"></script>
+<script>
+    $(document).ready(function() {
+
+    $("dt").click(function() {
+        $("dd").toggleClass('invisible');
+    })
+
+    $("#highlighter").click(function(){
+        $("#arches").children().last().css("background-color", "yellow");
+        $("#sequoia").children().last().css("background-color", "yellow");
+        $("#glacier").children().last().css("background-color", "yellow");
+    })
+
+     $(".header").click(function(){
+         $('li').css('font-weight', 'bold');
+     })
+
+      //  not working correctly- only makes the first li on arches blue
+      $("ul").click(function(){
+            $('li').first().css('color', 'blue');
+       })
+
+
+    });
+
+</script>
 
 <!--CSS HERE-->
 <style>
@@ -61,7 +126,13 @@
 
     }
 
-    dd {
+    h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    dd , li{
         font-family: 'Montserrat', sans-serif;
     }
 
@@ -70,22 +141,6 @@
     }
 </style>
 
-
-<!--JAVASCRIPT HERE-->
-<script src="js/jquery.js"></script>
-<script>
-    $(document).ready(function() {
-
-    $("dt").click(function() {
-        $("dd").toggleClass('invisible');
-    })
-
-
-
-
-    });
-
-</script>
 
 
 </body>
