@@ -8,7 +8,10 @@
 </head>
 <body>
 <h1>5 Day Forecast</h1>
-<div class="input-group">
+
+
+
+<div class="input-group mb-4">
     <div class="input-group-prepend">
         <span class="input-group-text" id="">Location</span>
     </div>
@@ -18,7 +21,7 @@
 </div>
 
 
-<h3 id="cityName"></h3>
+
 
 <div class="container">
     <div class="row text-center">
@@ -122,14 +125,7 @@ function loadWeather(){
         }).done(function(forecast){
             console.log(forecast);
 
-            //    not using this counter right now:
-            // var forecastDays = 5;
-            // var counter = 0;
-            //     for (var i= 0; i< forecastDays; i++){
-            //     counter+=1;
-            //     console.log(counter);
-            //
-            //     }
+
 
             forecast.list.forEach(function (forecast, index) {
                 function clearWeather(){
