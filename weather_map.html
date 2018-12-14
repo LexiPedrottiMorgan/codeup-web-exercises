@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<h1>5 Day Forecast</h1>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="">Location</span>
+    </div>
+    <input id="latitudeInput" type="text" class="form-control" placeholder="enter latitude" autofocus>
+    <input id="longitudeInput" type="text" class="form-control" placeholder="enter longitude">
+    <button id="submitButton" class="btn btn-outline-secondary" type="button">Search</button>
+</div>
+
+
+<h3 id="cityName"></h3>
 
 <div class="container">
     <div class="row text-center">
@@ -92,9 +104,112 @@
 
 
 function loadWeather(){
+
+
     var weather = "";
-    $.ajax("https://api.openweathermap.org/data/2.5/forecast?lat=18.17&lon=-96.12&units=imperial&APPID=bd8acf562b998ba53e0e9aa352323ca4")
-        .done(function(forecast){
+
+    //take users input for lat and lon
+    $("#submitButton").click(function(){
+        var lat = $("#latitudeInput").val();
+        var lon = $("#longitudeInput").val();
+        console.log(lat);
+        console.log(lon);
+        $.get("https://api.openweathermap.org/data/2.5/forecast", {
+            APPID: "bd8acf562b998ba53e0e9aa352323ca4",
+            lat: lat,
+            lon: lon,
+            units: "imperial"
+        }).done(function(forecast){
+            console.log(forecast);
+
+            //    not using this counter right now:
+            // var forecastDays = 5;
+            // var counter = 0;
+            //     for (var i= 0; i< forecastDays; i++){
+            //     counter+=1;
+            //     console.log(counter);
+            //
+            //     }
+
+            forecast.list.forEach(function (forecast, index) {
+                function clearWeather(){
+                    weather = "";
+                }
+
+                if (index === 0) {
+
+                    weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" + "</div>";
+                    weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                    weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                    weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                    weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
+
+                    $(".addWeather").eq(0).html(weather);
+
+                    clearWeather();
+
+                } else if (index === 8){
+                    weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
+                    weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                    weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                    weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                    weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
+
+                    $(".addWeather").eq(1).html(weather);
+                    clearWeather();
+
+                } else if (index === 16) {
+                    weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
+                    weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                    weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                    weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                    weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
+
+                    $(".addWeather").eq(2).html(weather);
+                    clearWeather();
+                } else if (index === 24) {
+                    weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
+                    weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                    weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                    weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                    weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
+
+                    $(".addWeather").eq(3).html(weather);
+                    clearWeather();
+                } else if (index === 32) {
+                    weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
+                    weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                    weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                    weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                    weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
+
+                    $(".addWeather").eq(4).html(weather);
+                    clearWeather();
+                }
+
+
+
+            });
+
+
+
+
+
+        })
+
+    });
+
+
+
+    //Default Lat and long:
+    var lat = 29.423017;
+    var lon = -98.48527;
+    $.get("https://api.openweathermap.org/data/2.5/forecast", {
+        APPID: "bd8acf562b998ba53e0e9aa352323ca4",
+        lat: 29.423017,
+        lon: 29.423017,
+        units: "imperial"
+    }).done(function(forecast){
             console.log(forecast);
 
         //    not using this counter right now:
@@ -113,45 +228,50 @@ function loadWeather(){
 
               if (index === 0) {
 
-                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" + "</div>";
                   weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
                   weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
-                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
 
                   $(".addWeather").eq(0).html(weather);
 
                   clearWeather();
 
               } else if (index === 8){
-                weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
                 weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
                 weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
-                weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+                weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
 
                   $(".addWeather").eq(1).html(weather);
                   clearWeather();
 
               } else if (index === 16) {
-                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
                   weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
                   weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
-                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
 
                   $(".addWeather").eq(2).html(weather);
                   clearWeather();
               } else if (index === 24) {
-                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
                   weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
                   weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
-                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
 
                   $(".addWeather").eq(3).html(weather);
                   clearWeather();
               } else if (index === 32) {
-                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + forecast.main.temp_max + "<text>º / </text>" + forecast.main.temp_min + "<text>º</text>" +"</div>";
                   weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
                   weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
-                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Clouds / Rain: </strong>" + forecast.weather[0].description + "</div>";
+                  weather += "<div>" + "<strong>Wind Speed:  </strong>" + forecast.wind.speed + "<text>mph</text>" + "</div>";
 
                   $(".addWeather").eq(4).html(weather);
                   clearWeather();
@@ -187,6 +307,7 @@ loadWeather();
 
 
 })();
+
 
 </script>
 
