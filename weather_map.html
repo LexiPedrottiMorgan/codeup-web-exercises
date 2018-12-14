@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Project</title>
+    <!--bootstrap stylesheet linked here-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Day 1</th>
+                </tr>
+                </thead>
+                <tbody class="addWeather"></tbody>
+            </table>
+        </div>
+        <div class="col-sm">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Day 2</th>
+                </tr>
+                </thead>
+                <tbody class="addWeather"></tbody>
+            </table>
+        </div>
+        <div class="col-sm">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Day 3</th>
+                </tr>
+                </thead>
+                <tbody class="addWeather"></tbody>
+            </table>
+        </div>
+        <div class="col-sm">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Day 4</th>
+                </tr>
+                </thead>
+                <tbody class="addWeather"></tbody>
+            </table>
+        </div>
+        <div class="col-sm">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Day 5</th>
+                </tr>
+                </thead>
+                <tbody  class="addWeather"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--javascript starts here-->
+<script src="js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+
+(function() {
+"use strict";
+
+
+
+function loadWeather(){
+    var weather = "";
+    $.ajax("https://api.openweathermap.org/data/2.5/forecast?lat=18.17&lon=-96.12&units=imperial&APPID=bd8acf562b998ba53e0e9aa352323ca4")
+        .done(function(forecast){
+            console.log(forecast);
+
+        //    not using this counter right now:
+        // var forecastDays = 5;
+        // var counter = 0;
+        //     for (var i= 0; i< forecastDays; i++){
+        //     counter+=1;
+        //     console.log(counter);
+        //
+        //     }
+
+        forecast.list.forEach(function (forecast, index) {
+            function clearWeather(){
+                weather = "";
+            }
+
+              if (index === 0) {
+
+                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                  weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+
+                  $(".addWeather").eq(0).html(weather);
+
+                  clearWeather();
+
+              } else if (index === 8){
+                weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+
+                  $(".addWeather").eq(1).html(weather);
+                  clearWeather();
+
+              } else if (index === 16) {
+                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                  weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+
+                  $(".addWeather").eq(2).html(weather);
+                  clearWeather();
+              } else if (index === 24) {
+                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                  weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+
+                  $(".addWeather").eq(3).html(weather);
+                  clearWeather();
+              } else if (index === 32) {
+                  weather += "<div>" + forecast.main.temp_max + "<strong> / </strong>" + forecast.main.temp_min + "</div>";
+                  weather += "<div>" + "<strong>Humidity: </strong>" + forecast.main.humidity + "</div>";
+                  weather += "<div>" + "<strong>Pressure: </strong>" + forecast.main.pressure + "<div>";
+                  weather += "<div>" + "<strong>Rain: </strong>" + forecast.weather[0].description + "</div>";
+
+                  $(".addWeather").eq(4).html(weather);
+                  clearWeather();
+              }
+
+
+
+        });
+
+
+
+
+
+        })
+
+
+
+
+
+}
+
+loadWeather();
+
+
+
+
+
+
+
+
+
+
+
+
+})();
+
+</script>
+
+<!--Bootstrap code for javascript-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
