@@ -5,12 +5,20 @@
     <title>Weather Project</title>
     <!--bootstrap stylesheet linked here-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        #map-canvas {
+            width: 80%px;
+            height: 481px;
+        }
+    </style>
 </head>
 <body>
 <h1>5 Day Forecast</h1>
 
+<!-- div to hold map -->
+<div id="map-canvas"></div>
 
-
+<!--lat and lon search-->
 <div class="input-group mb-4">
     <div class="input-group-prepend">
         <span class="input-group-text" id="">Location</span>
@@ -91,8 +99,8 @@
 
 
 
-
-
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMVcZOzzha3vjCoaxlSmos_rF-e4CBn-4"></script>
 
 
 <!--javascript starts here-->
@@ -104,8 +112,62 @@
 (function() {
 "use strict";
 
+            // Set our map options
+
+            var mapOptions = {
+                // Set the zoom level
+                zoom: 19,
+
+                // This sets the center of the map at our location
+                center: {
+                    lat: 29.418675,
+                    lng: -98.488021
+                }
+            };
+
+    // Init geocoder object
+    var geocoder = new google.maps.Geocoder();
+    var addressButton = document.getElementById("searchButton");
+
+    submitButton.addEventListener("click", function() {
+        var myAddress = document.getElementById("address").value;
+        geocoder.geocode({ "address": myAddress }, function (results, status) {
+
+// Check for a successful result
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                // Recenter the map over the address
+                console.log(results);
+                map.setCenter(results[0].geometry.location);
+
+                var tempMarker = new google.maps.Marker({
+                    position: results[0].geometry.location,
+                    map: map
+                });
+
+                //    create a new infoWindow object with content
+                var infowindow = new google.maps.InfoWindow({
+                    content: "Here's what you're looking for!"
+                });
+
+                //Open the window using our map and marker
+                infowindow.open(map, tempMarker);
+
+            } else {
 
 
+                // Show an error message with the status if our request fails
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+    });
+
+    // Render the map
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+
+//    weather javascript to retrieve weather data
 function loadWeather(){
 
 
@@ -203,7 +265,7 @@ function loadWeather(){
     $.get("https://api.openweathermap.org/data/2.5/forecast", {
         APPID: "bd8acf562b998ba53e0e9aa352323ca4",
         lat: 29.423017,
-        lon: 29.423017,
+        lon: -98.48527,
         units: "imperial"
     }).done(function(forecast){
             console.log(forecast);
