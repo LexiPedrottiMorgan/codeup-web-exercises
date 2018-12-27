@@ -23,10 +23,14 @@
     <div class="input-group-prepend">
         <span class="input-group-text" id="">Location</span>
     </div>
-    <input id="latitudeInput" type="text" class="form-control" placeholder="enter latitude" autofocus>
-    <input id="longitudeInput" type="text" class="form-control" placeholder="enter longitude">
-    <button id="submitButton" class="btn btn-outline-secondary" type="button">Search</button>
-</div>
+        <input type="text" id="address" class="form-control" placeholder="enter location" autofocus>
+         <button type="submit" id="searchButton" class="btn     btn-outline-secondary">Search</button>
+    </div>
+
+    <!--<input id="latitudeInput" type="text" class="form-control" placeholder="enter latitude" autofocus>-->
+    <!--<input id="longitudeInput" type="text" class="form-control" placeholder="enter longitude">-->
+    <!--<button id="submitButton" class="btn btn-outline-secondary" type="button">Search</button>-->
+<!--</div>-->
 
 
 
@@ -91,14 +95,6 @@
 
 
 
-
-
-
-
-
-
-
-
 <!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMVcZOzzha3vjCoaxlSmos_rF-e4CBn-4"></script>
 
@@ -117,11 +113,11 @@
 //    weather javascript to retrieve weather data
 function loadWeather(){
 
-//
+
     // Set our map options
     var mapOptions = {
         // Set the zoom level
-        zoom: 19,
+        zoom: 10,
 
         // This sets the center of the map at our location
         center: {
@@ -133,56 +129,39 @@ function loadWeather(){
 
     // Init geocoder object
     var geocoder = new google.maps.Geocoder();
-//
-//     $("#submitButton").click(function(){
-//         var lat = $("#latitudeInput").val();
-//         var lng = $("#longitudeInput").val();
-//         geocoder.geocode({ "address": {"lat":lat, "lng": lng}}, function (results, status) {
-//
-// // Check for a successful result
-//             if (status == google.maps.GeocoderStatus.OK) {
-//
-//                 // Recenter the map over the address
-//                 console.log(results);
-//                 map.setCenter(results[0].geometry.location);
-//
-//                 var tempMarker = new google.maps.Marker({
-//                     position: results[0].geometry.location,
-//                     map: map
-//                 });
-//
-//                 //    create a new infoWindow object with content
-//                 var infowindow = new google.maps.InfoWindow({
-//                     content: "Here's what you're looking for!"
-//                 });
-//
-//                 //Open the window using our map and marker
-//                 infowindow.open(map, tempMarker);
-//
-//             } else {
-//
-//
-//                 // Show an error message with the status if our request fails
-//                 alert("Geocoding was not successful - STATUS: " + status);
-//             }
-//         });
-//     });
-//
-//     // Render the map
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-//
+    var addressButton = document.getElementById("searchButton");
+
+    addressButton.addEventListener("click", function() {
+        var myAddress = document.getElementById("address").value;
+        geocoder.geocode({ "address": myAddress }, function (results, status) {
+
+// Check for a successful result
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                // Recenter the map over the address
+                console.log(results);
+                map.setCenter(results[0].geometry.location);
+
+                var tempMarker = new google.maps.Marker({
+                    position: results[0].geometry.location,
+                    map: map
+                });
+
+                //    create a new infoWindow object with content
+                var infowindow = new google.maps.InfoWindow({
+                    content: "Here's what you're looking for!"
+                });
 
 
-
-
-
+console.log("hi");
 
     var weather = "";
 
-    //take users input for lat and lon
-    $("#submitButton").click(function(){
-        var lat = $("#latitudeInput").val();
-        var lon = $("#longitudeInput").val();
+    //take users input for lat and long
+    $("#searchButton").click(function(){
+        console.log("inside weather function");
+        var lat = results[0].geometry.location.lat;
+        var lon = results[0].geometry.location.lon;
         console.log(lat);
         console.log(lon);
         $.get("https://api.openweathermap.org/data/2.5/forecast", {
@@ -192,7 +171,6 @@ function loadWeather(){
             units: "imperial"
         }).done(function(forecast){
             console.log(forecast);
-
 
 
 
@@ -267,9 +245,27 @@ function loadWeather(){
         })
 
     });
+                //Open the window using our map and marker
+                infowindow.open(map, tempMarker);
+
+                return tempMarker;
+            } else {
+
+
+                // Show an error message with the status if our request fails
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+    });
+    // Render the map
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
 
 
+
+
+
+    var weather = "";
     //Default Lat and long:
     var lat = 29.423017;
     var lon = -98.48527;
